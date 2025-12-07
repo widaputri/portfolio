@@ -1,65 +1,137 @@
-import Image from "next/image";
+'use client';
+
+import { motion } from 'framer-motion';
+import Header from './components/Header';
+import Ornament from './components/Ornament';
+import FloatingParticles from './components/FloatingParticles';
+import Works from './components/Works';
+import Contact from './components/Contact';
+import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div 
+      className="relative overflow-x-hidden"
+      style={{
+        background: `
+          radial-gradient(ellipse 1400px 1100px at 0% 0%, #38bdf8 0%, transparent 55%),
+          radial-gradient(ellipse 1200px 1000px at 100% 0%, #ff8844 0%, transparent 60%),
+          radial-gradient(ellipse 1600px 1200px at 45% 30%, #ffc933 0%, transparent 65%),
+          radial-gradient(ellipse 900px 700px at 90% 50%, #ff99cc 0%, transparent 55%),
+          radial-gradient(ellipse 1300px 1000px at 0% 100%, #5fd4f4 0%, transparent 60%),
+          radial-gradient(ellipse 1100px 900px at 100% 100%, #ff8844 0%, transparent 60%),
+          radial-gradient(ellipse 1500px 1100px at 50% 130%, #ffc933 0%, transparent 65%),
+          radial-gradient(ellipse 800px 600px at 10% 120%, #c084fc 0%, transparent 55%),
+          linear-gradient(180deg, #bae6fd 0%, #fde68a 50%, #ddd6fe 100%)
+        `,
+        backgroundSize: '100% 100%'
+      }}
+    >
+
+      {/* Header */}
+      <Header />
+
+      {/* Hero Section */}
+      <main className="relative flex items-center justify-center min-h-screen px-6 md:px-12 lg:px-0">
+        <div className="w-full max-w-[935.642px] mx-auto flex flex-col items-center gap-6 md:gap-9 mt-[200px] md:mt-0">
+          {/* Top Ornament */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.8 }}
+            className="scale-75 md:scale-100"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <Ornament />
+          </motion.div>
+
+          {/* Main Heading */}
+          <motion.h1
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[96px] font-bold text-white leading-none text-center w-full px-4"
+            style={{ 
+              fontFamily: 'var(--font-caveat)',
+              textShadow: '0px 4px 13.6px rgba(0, 0, 0, 0.25)'
+            }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.8 }}
           >
-            Documentation
-          </a>
+            <motion.span
+              className="inline-block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Problem-Solver,
+            </motion.span>{' '}
+            <motion.span
+              className="inline-block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Product-Thinker,
+            </motion.span>{' '}
+            <motion.span
+              className="inline-block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Challenge-Taker
+            </motion.span>
+          </motion.h1>
+
+          {/* Name */}
+          <motion.p
+            className="text-lg sm:text-xl md:text-2xl font-bold text-neutral-50 tracking-[0.15em] md:tracking-[2.4px] text-center"
+            style={{ 
+              fontFamily: 'var(--font-instrument)',
+              textShadow: '0px 4px 6.2px rgba(0, 0, 0, 0.25)'
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.3, duration: 0.8 }}
+          >
+            WIDA PUTRI
+          </motion.p>
+
+          {/* Bottom Ornament */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.6, duration: 0.8 }}
+            className="scale-75 md:scale-100"
+          >
+            <Ornament />
+          </motion.div>
         </div>
       </main>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className="fixed bottom-8 right-8 md:right-12 z-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 10, 0] }}
+        transition={{
+          opacity: { delay: 2, duration: 0.5 },
+          y: { duration: 2, repeat: Infinity, ease: "easeInOut" }
+        }}
+      >
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
+          <motion.div
+            className="w-1.5 h-1.5 bg-white rounded-full"
+            animate={{ y: [0, 12, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+          />
+        </div>
+      </motion.div>
+
+      {/* Works Section */}
+      <Works />
+
+      {/* Contact Section */}
+      <Contact />
     </div>
   );
 }
