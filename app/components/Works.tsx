@@ -8,30 +8,23 @@ const projects: WorkItem[] = [
   {
     title: 'SPUN Smart Upload Case Study',
     subtitle: 'INTERNSHIP PROJECT',
-    thumbnail: '/spun.png',
+    thumbnail: '/spun_smart.png',
     link: 'https://medium.com/@widaputri/spun-smart-upload-case-study-7ae3eea5ef5f',
     cta: 'Read my thought process'
   },
   {
-    title: 'E-Commerce Platform Redesign',
-    subtitle: 'CLIENT PROJECT',
-    thumbnail: '/project-2.jpg',
-    link: 'https://example.com/ecommerce-redesign',
-    cta: 'View the transformation'
-  },
-  {
-    title: 'Mobile Banking App',
-    subtitle: 'PERSONAL PROJECT',
-    thumbnail: '/project-3.jpg', // Replace with your actual image path
-    link: 'https://example.com/banking-app',
+    title: 'Glyph: CV generator landing page',
+    subtitle: 'FREELANCE WORK',
+    thumbnail: '/glyph.png',
+    link: 'https://www.figma.com/proto/gxLZlcFkdSOEEnxoYQHfGz/Resume-Forge?page-id=159%3A49&node-id=207-347&node-type=frame&viewport=-417%2C545%2C0.26&t=dgvi6ehfpf2geLuQ-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=207%3A347&show-proto-sidebar=1',
     cta: 'Explore the design'
   },
   {
-    title: 'AI-Powered Dashboard',
-    subtitle: 'FREELANCE WORK',
-    thumbnail: '/project-4.jpg', // Replace with your actual image path
-    link: 'https://example.com/ai-dashboard',
-    cta: 'See how it works'
+    title: 'SPUN Service Detail Page Case Study',
+    subtitle: 'RECRUITMENT ASSIGNMENT',
+    thumbnail: '/spun_recr.png',
+    link: 'https://www.figma.com/design/Mbll4LfhyZUQ21hqtHLRHU/SPUN-Case-Study?node-id=0-1&t=Wat6oYKNrMeKVxCX-1',
+    cta: 'See my case study'
   }
 ];
 
@@ -65,16 +58,6 @@ export default function Works() {
             Selected Works
           </motion.h2>
 
-          <motion.p
-            className="text-lg md:text-xl text-white/80 text-center max-w-2xl"
-            style={{ fontFamily: 'var(--font-instrument)', textShadow: '0px 2px 4px rgba(0, 0, 0, 0.3)' }}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            A curated collection of projects that showcase my problem-solving approach and design thinking
-          </motion.p>
         </div>
 
         {/* Projects Grid */}

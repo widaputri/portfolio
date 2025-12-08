@@ -3,17 +3,17 @@
 import { motion } from 'framer-motion';
 import Header from './components/Header';
 import Ornament from './components/Ornament';
-import FloatingParticles from './components/FloatingParticles';
 import Works from './components/Works';
 import Contact from './components/Contact';
-import Image from 'next/image';
 
 export default function Home() {
   return (
-    <div 
-      className="relative overflow-x-hidden"
-      style={{
-        background: `
+    <div className="relative overflow-x-hidden">
+      {/* Animated Lava Lamp Background */}
+      <motion.div
+        className="fixed inset-0 -z-10"
+        style={{
+          background: `
           radial-gradient(ellipse 1400px 1100px at 0% 0%, #38bdf8 0%, transparent 55%),
           radial-gradient(ellipse 1200px 1000px at 100% 0%, #ff8844 0%, transparent 60%),
           radial-gradient(ellipse 1600px 1200px at 45% 30%, #ffc933 0%, transparent 65%),
@@ -23,10 +23,22 @@ export default function Home() {
           radial-gradient(ellipse 1500px 1100px at 50% 130%, #ffc933 0%, transparent 65%),
           radial-gradient(ellipse 800px 600px at 10% 120%, #c084fc 0%, transparent 55%),
           linear-gradient(180deg, #bae6fd 0%, #fde68a 50%, #ddd6fe 100%)
-        `,
-        backgroundSize: '100% 100%'
-      }}
-    >
+          `,
+          backgroundSize: '100% 100%'
+        }}
+        animate={{
+          backgroundPosition: [
+            '0% 0%, 100% 0%, 45% 30%, 90% 50%, 0% 100%, 100% 100%, 50% 130%, 10% 120%, 0% 0%',
+            '10% 10%, 90% 10%, 55% 40%, 80% 60%, 10% 90%, 90% 90%, 60% 120%, 20% 110%, 0% 0%',
+            '0% 0%, 100% 0%, 45% 30%, 90% 50%, 0% 100%, 100% 100%, 50% 130%, 10% 120%, 0% 0%'
+          ]
+        }}
+        transition={{
+          duration: 20,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+      />
 
       {/* Header */}
       <Header />
