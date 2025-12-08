@@ -4,19 +4,18 @@ import { motion } from 'framer-motion';
 import WorkCard, { WorkItem } from './WorkCard';
 import Ornament from './Ornament';
 
-// Easy to modify - just add/remove/edit projects here
 const projects: WorkItem[] = [
   {
     title: 'SPUN Smart Upload Case Study',
     subtitle: 'INTERNSHIP PROJECT',
-    thumbnail: '/project-1.jpg', // Replace with your actual image path
-    link: 'https://example.com/spun-case-study',
+    thumbnail: '/spun.png',
+    link: 'https://medium.com/@widaputri/spun-smart-upload-case-study-7ae3eea5ef5f',
     cta: 'Read my thought process'
   },
   {
     title: 'E-Commerce Platform Redesign',
     subtitle: 'CLIENT PROJECT',
-    thumbnail: '/project-2.jpg', // Replace with your actual image path
+    thumbnail: '/project-2.jpg',
     link: 'https://example.com/ecommerce-redesign',
     cta: 'View the transformation'
   },
@@ -49,7 +48,7 @@ export default function Works() {
             transition={{ duration: 0.8 }}
             className="scale-75 md:scale-100"
           >
-            <Ornament />
+            <Ornament flipped />
           </motion.div>
 
           <motion.h2
@@ -68,7 +67,7 @@ export default function Works() {
 
           <motion.p
             className="text-lg md:text-xl text-white/80 text-center max-w-2xl"
-            style={{ fontFamily: 'var(--font-instrument)' }}
+            style={{ fontFamily: 'var(--font-instrument)', textShadow: '0px 2px 4px rgba(0, 0, 0, 0.3)' }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

@@ -41,7 +41,7 @@ export default function Home() {
             transition={{ delay: 0.8, duration: 0.8 }}
             className="scale-75 md:scale-100"
           >
-            <Ornament />
+            <Ornament flipped />
           </motion.div>
 
           {/* Main Heading */}
@@ -107,6 +107,7 @@ export default function Home() {
       {/* Scroll Indicator */}
       <motion.div
         className="fixed bottom-8 right-8 md:right-12 z-10"
+        style={{ filter: 'drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.3))' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, y: [0, 10, 0] }}
         transition={{

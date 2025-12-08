@@ -57,7 +57,7 @@ export default function Header() {
                 <Link
                   href={link.href}
                   className="text-white text-sm xl:text-[16px] font-bold tracking-[1.6px] hover:opacity-70 transition-opacity whitespace-nowrap"
-                  style={{ fontFamily: 'var(--font-bricolage)' }}
+                  style={{ fontFamily: 'var(--font-bricolage)', textShadow: '0px 2px 4px rgba(0, 0, 0, 0.3)' }}
                 >
                   {link.name}
                 </Link>

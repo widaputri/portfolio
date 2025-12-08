@@ -28,7 +28,7 @@ export default function WorkCard({ work, index }: WorkCardProps) {
     >
       {/* Thumbnail Container */}
       <motion.div
-        className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-white/10 backdrop-blur-sm"
+        className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#B1E4FF]"
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
@@ -37,11 +37,11 @@ export default function WorkCard({ work, index }: WorkCardProps) {
             src={work.thumbnail}
             alt={work.title}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-110"
+            className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
           />
           
           {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </Link>
       </motion.div>
 

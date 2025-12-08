@@ -3,10 +3,15 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-export default function Ornament() {
+interface OrnamentProps {
+  flipped?: boolean;
+}
+
+export default function Ornament({ flipped = false }: OrnamentProps) {
   return (
     <motion.div
       className="relative w-[175.816px] h-[109.62px]"
+      style={{ filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25))' }}
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}
@@ -21,7 +26,7 @@ export default function Ornament() {
           src="/58e4725ebb7af99ca02bd8f91c20e2a83a0f59d0.svg"
           alt=""
           fill
-          className="object-contain"
+          className={`object-contain ${flipped ? 'scale-y-[-1]' : ''}`}
         />
       </motion.div>
     </motion.div>
