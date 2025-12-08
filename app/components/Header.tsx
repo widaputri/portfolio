@@ -7,7 +7,6 @@ import Image from 'next/image';
 
 export default function Header() {
   const navLinks = [
-    { name: 'BACKGROUND', href: '#background' },
     { name: 'WORKS', href: '#works' },
     { name: 'CONTACT', href: '#contact' },
   ];
@@ -20,7 +19,7 @@ export default function Header() {
 
   return (
     <motion.header
-      className="absolute top-0 left-0 right-0 z-50 h-[150px] md:h-[204px] pointer-events-none"
+      className="fixed top-0 left-0 right-0 z-50 h-[150px] md:h-[204px] pointer-events-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -32,21 +31,23 @@ export default function Header() {
         {/* Logo and Navigation */}
         <div className="absolute left-6 md:left-[120px] top-[30px] md:top-[58px] flex items-center gap-6 md:gap-10 drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
           {/* Logo */}
+          <Link href="#background">
           <motion.div
             className="w-9 h-9 relative"
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: "spring", stiffness: 400 }}
           >
             <Image
-              src="/2773115ed71be222a84a64b3349711007958585e.png"
+              src="/icon.png"
               alt="Logo"
               fill
               className="object-cover rounded-lg"
             />
           </motion.div>
+          </Link>
 
           {/* Navigation - Hidden on mobile */}
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-[84px]">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link, index) => (
               <motion.div
                 key={link.name}
