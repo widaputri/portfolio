@@ -71,7 +71,7 @@ export default function Resume() {
       <div className="max-w-[1440px] mx-auto px-0 lg:px-[60px]">
         {/* Section Header */}
         <motion.div
-          className="border-b border-[#1d1d1d] h-20 md:h-[100px] lg:h-[120px] flex items-start"
+          className="border-b border-[#c4c4c4] h-20 md:h-[100px] lg:h-[120px] flex items-start"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -165,7 +165,7 @@ export default function Resume() {
               </div>
             </motion.div>
             {index < experiences.length - 1 && (
-              <div className="h-px bg-[#1d1d1d] my-8 md:my-12 lg:my-16" />
+              <div className="h-px bg-[#c4c4c4] my-8 md:my-12 lg:my-16" />
             )}
           </div>
           ))}
