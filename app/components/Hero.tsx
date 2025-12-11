@@ -5,9 +5,9 @@ import Ornament from './Ornament';
 
 export default function Hero() {
   const words = [
-    { text: 'Problem-Solver,', color: '#898989' },
-    { text: 'Product-Inventor,', color: '#1d1d1d' },
-    { text: 'Challenge-Taker.', color: '#898989' }
+    { text: 'Growth-Driver,', color: '#898989' },
+    { text: 'Product-Obsessed,', color: '#1d1d1d' },
+    { text: 'Solution-Crafter.', color: '#898989' }
   ];
 
   const containerVariants = {
