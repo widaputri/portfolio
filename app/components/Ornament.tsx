@@ -10,8 +10,7 @@ interface OrnamentProps {
 export default function Ornament({ flipped = false }: OrnamentProps) {
   return (
     <motion.div
-      className="relative w-[175.816px] h-[109.62px]"
-      style={{ filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25))' }}
+      className="relative w-[120px] h-[75px] sm:w-[150px] sm:h-[93px] md:w-[175.816px] md:h-[109.62px]"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1, ease: "easeOut" }}

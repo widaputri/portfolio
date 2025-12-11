@@ -10,6 +10,7 @@ export interface WorkItem {
   thumbnail: string;
   link: string;
   cta: string;
+  number: number;
 }
 
 interface WorkCardProps {
@@ -18,87 +19,125 @@ interface WorkCardProps {
 }
 
 export default function WorkCard({ work, index }: WorkCardProps) {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: index * 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" as const }
+    }
+  };
+
   return (
     <motion.div
-      className="group relative flex flex-col gap-6"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      className="flex flex-col gap-8 md:gap-12"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ delay: index * 0.2, duration: 0.6 }}
     >
-      {/* Thumbnail Container */}
-      <motion.div
-        className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-[#B1E4FF]"
-        whileHover={{ scale: 1.02 }}
-        transition={{ type: "spring", stiffness: 300 }}
+      {/* Header: Number + Title + CTA Button */}
+      <motion.div 
+        className="flex flex-col md:flex-row md:items-start md:justify-between gap-6 md:gap-0"
+        variants={itemVariants}
       >
-        <Link href={work.link} target="_blank" rel="noopener noreferrer">
-          <Image
-            src={work.thumbnail}
-            alt={work.title}
-            fill
-            className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
-          />
+        {/* Left: Number + Title + Subtitle */}
+        <div className="flex gap-6 md:gap-12">
+          {/* Number */}
+          <motion.span 
+            className="text-[32px] md:text-[40px] lg:text-[48px] leading-none font-normal text-[#1d1d1d]" 
+            style={{ fontFamily: 'var(--font-dream-cottage)' }}
+            whileHover={{ scale: 1.1, color: '#898989' }}
+            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          >
+            {work.number}
+          </motion.span>
           
-          {/* Overlay on hover */}
-          <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        </Link>
-      </motion.div>
+          {/* Title + Subtitle */}
+          <motion.div 
+            className="flex flex-col gap-2"
+            variants={itemVariants}
+          >
+            <h3 
+              className="text-[28px] sm:text-[36px] md:text-[40px] lg:text-[48px] leading-tight md:leading-none font-normal text-[#1d1d1d]"
+              style={{ fontFamily: 'var(--font-dream-cottage)' }}
+            >
+              {work.title}
+            </h3>
+            <p 
+              className="text-[16px] md:text-[20px] lg:text-[24px] leading-tight text-[#898989]"
+              style={{ fontFamily: 'var(--font-plus-jakarta)' }}
+            >
+              {work.subtitle}
+            </p>
+          </motion.div>
+        </div>
 
-      {/* Content */}
-      <div className="flex flex-col gap-3">
-        {/* Subtitle */}
-        <motion.p
-          className="text-sm font-bold text-white/70 tracking-[0.2em] uppercase"
-          style={{ fontFamily: 'var(--font-instrument)' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.2 + 0.3, duration: 0.5 }}
-        >
-          {work.subtitle}
-        </motion.p>
-
-        {/* Title */}
-        <motion.h3
-          className="text-2xl md:text-3xl lg:text-4xl font-bold text-white leading-tight"
-          style={{ 
-            fontFamily: 'var(--font-caveat)',
-            textShadow: '0px 2px 8px rgba(0, 0, 0, 0.2)'
-          }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.2 + 0.4, duration: 0.5 }}
-        >
-          {work.title}
-        </motion.h3>
-
-        {/* CTA Button */}
+        {/* Right: CTA Button */}
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.2 + 0.5, duration: 0.5 }}
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+          className="self-start md:self-auto"
         >
           <Link
             href={work.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block"
+            className="flex items-center gap-2 md:gap-3 px-3 py-2.5 border border-[#1d1d1d] hover:bg-[#1d1d1d] hover:text-white transition-colors group"
+            style={{ fontFamily: 'var(--font-plus-jakarta)' }}
           >
-            <motion.button
-              className="px-6 py-3 bg-white/20 backdrop-blur-md text-white font-bold rounded-full border-2 border-white/40 hover:bg-white/30 hover:border-white/60 transition-all duration-300"
-              style={{ fontFamily: 'var(--font-bricolage)' }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
+            <span className="text-[14px] md:text-[16px] lg:text-[20px] leading-tight font-bold tracking-[0.05em] whitespace-nowrap">
               {work.cta}
-            </motion.button>
+            </span>
+            <motion.svg 
+              width="20" 
+              height="20"
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor" 
+              strokeWidth="2"
+              className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform md:w-6 md:h-6"
+            >
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </motion.svg>
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
+
+      {/* Thumbnail Container */}
+      <motion.div
+        className="relative w-full max-w-full md:max-w-[640px] aspect-4/3 bg-[#e3f5ff] rounded-lg overflow-hidden group"
+        variants={itemVariants}
+        whileHover={{ scale: 1.02, y: -8 }}
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      >
+        <Link href={work.link} target="_blank" rel="noopener noreferrer">
+          <motion.div
+            className="relative w-full h-full"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <Image
+              src={work.thumbnail}
+              alt={work.title}
+              fill
+              className="object-contain"
+            />
+          </motion.div>
+        </Link>
+      </motion.div>
     </motion.div>
   );
 }

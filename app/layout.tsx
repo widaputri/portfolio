@@ -1,23 +1,30 @@
 import type { Metadata } from "next";
-import { Caveat, Instrument_Sans, Bricolage_Grotesque } from "next/font/google";
+import { Plus_Jakarta_Sans, League_Spartan } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const caveat = Caveat({
-  variable: "--font-caveat",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const instrumentSans = Instrument_Sans({
-  variable: "--font-instrument",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const bricolageGrotesque = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
+});
+
+const leagueSpartan = League_Spartan({
+  variable: "--font-league-spartan",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const dreamCottage = localFont({
+  src: [
+    {
+      path: "../public/fonts/DreamCottage.otf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-dream-cottage",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -36,7 +43,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${caveat.variable} ${instrumentSans.variable} ${bricolageGrotesque.variable} antialiased`}
+        className={`${plusJakartaSans.variable} ${leagueSpartan.variable} ${dreamCottage.variable} antialiased`}
       >
         {children}
       </body>
