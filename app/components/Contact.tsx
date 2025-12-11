@@ -95,7 +95,7 @@ export default function Contact() {
                   whileHover={{ scale: 1.05, y: -5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="flex-shrink-0 w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300">
+                  <div className="shrink-0 w-8 h-8 text-white group-hover:scale-110 transition-transform duration-300">
                     <Icon />
                   </div>
                   <div className="flex flex-col items-start">

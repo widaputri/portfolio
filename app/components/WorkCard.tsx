@@ -28,7 +28,7 @@ export default function WorkCard({ work, index }: WorkCardProps) {
     >
       {/* Thumbnail Container */}
       <motion.div
-        className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#B1E4FF]"
+        className="relative w-full aspect-4/3 rounded-2xl overflow-hidden bg-[#B1E4FF]"
         whileHover={{ scale: 1.02 }}
         transition={{ type: "spring", stiffness: 300 }}
       >
