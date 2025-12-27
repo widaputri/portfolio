@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   title: "Wida Putri - Portfolio",
   description: "Problem-Solver, Product-Thinker, Challenge-Taker",
   icons: {
-    icon: "/icon.png",
+    icon: "/icon.svg",
   },
 };
 

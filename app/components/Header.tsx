@@ -47,7 +47,7 @@ export default function Header() {
               transition={{ type: "spring", stiffness: 400 }}
             >
               <Image
-                src="/icon.png"
+                src="/icon.svg"
                 alt="Logo"
                 fill
                 className="object-cover rounded-lg"
