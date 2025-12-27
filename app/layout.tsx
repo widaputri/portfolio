@@ -2,6 +2,15 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, League_Spartan } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import * as amplitude from '@amplitude/analytics-browser';
+import { autocapturePlugin } from '@amplitude/plugin-autocapture-browser';
+
+amplitude.init('AMPLITUDE_API_KEY', {
+  autocapture: {
+    elementInteractions: true,
+    webVitals: true // Enable Core Web Vitals tracking
+  }
+});
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
