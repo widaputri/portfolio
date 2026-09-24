@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wiwawuwewo.vercel.app/sitemap.xml
