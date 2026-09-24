@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, League_Spartan } from "next/font/google";
 import localFont from "next/font/local";
+// @ts-expect-error -- CSS module side-effect import is handled by Next.js.
 import "./globals.css";
 import { Amplitude } from '@/amplitude';
 
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     icon: "/icon.svg",
   },
   verification: {
-    google: 'QKqhvaAqt1DM_qWB_8E9swrRIEFDQneKBt5Loi3sNrA',
+    google: 'HYNFQmJaozcNCvtUi3iJImQFcll9qoAda9Zmj5VFIxo',
   },
 };
 
