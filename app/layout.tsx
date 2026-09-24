@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, League_Spartan } from "next/font/google";
 import localFont from "next/font/local";
-// @ts-expect-error -- CSS module side-effect import is handled by Next.js.
 import "./globals.css";
 import { Amplitude } from '@/amplitude';
 
