@@ -12,7 +12,17 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
-    date: 'Jan-Aug 2025',
+    date: 'Feb-Sep 2026',
+    title: 'Product Design Intern',
+    company: 'Grab',
+    achievements: [
+      'Designed user-centric features across Growth, Communications, and Core Experience with the CX team',
+      'Led UX research through competitor analysis, heuristic reviews, and usability testing to guide product decisions',
+      'Built polished interfaces using Grab’s design system and prototyped interactions to improve the overall experience'
+    ]
+  },
+  {
+    date: 'Jan 2025-Feb 2026',
     title: 'Product Design Intern',
     company: 'SPUN',
     achievements: [
