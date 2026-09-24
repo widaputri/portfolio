@@ -49,7 +49,7 @@ export default function Hero() {
             animate="visible"
           >
             {words.map((word, wordIndex) => (
-              <span key={wordIndex} style={{ color: word.color, display: 'inline-block', whiteSpace: 'nowrap' }} className="mr-2">
+              <span key={word.text} style={{ color: word.color, display: 'inline-block', whiteSpace: 'nowrap' }} className="mr-2">
                 {word.text.split('').map((char, charIndex) => (
                   <motion.span
                     key={`${wordIndex}-${charIndex}`}
