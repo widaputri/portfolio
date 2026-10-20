@@ -1,96 +1,17 @@
-'use client';
-
-import { motion } from 'framer-motion';
-import Ornament from './Ornament';
-
 export default function Hero() {
-  const words = [
-    { text: 'Growth-Driver,', color: '#898989' },
-    { text: 'Product-Obsessed,', color: '#1d1d1d' },
-    { text: 'Solution-Crafter.', color: '#898989' }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.03,
-        delayChildren: 0.2
-      }
-    }
-  };
-
-  const charVariants = {
-    hidden: { opacity: 0, y: 50, rotateX: -90 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotateX: 0,
-      transition: {
-        type: "spring" as const,
-        damping: 12,
-        stiffness: 200
-      }
-    }
-  };
+  const capability = 'Product-Minded UI/UX Design * AI-Assisted Prototyping * UX Research & Validation * Conversion & Growth Strategy';
 
   return (
-    <section className="relative min-h-screen flex items-center px-6 md:px-12 lg:px-[120px] pt-24 md:pt-32 lg:pt-[221px] pb-16 md:pb-24 lg:pb-32">
-      <div className="max-w-[1440px] mx-auto w-full px-0 lg:px-[60px]">
-        <div className="flex flex-col gap-6 md:gap-9">
-          <motion.h1 
-            className="text-[40px] sm:text-[52px] md:text-[64px] lg:text-[80px] leading-none text-[#1d1d1d] max-w-full lg:max-w-[936px]"
-            style={{ 
-              fontFamily: 'var(--font-dream-cottage)',
-            }}
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {words.map((word, wordIndex) => (
-              <span key={word.text} style={{ color: word.color, display: 'inline-block', whiteSpace: 'nowrap' }} className="mr-2">
-                {word.text.split('').map((char, charIndex) => (
-                  <motion.span
-                    key={`${wordIndex}-${charIndex}`}
-                    variants={charVariants}
-                    style={{ display: 'inline-block' }}
-                    whileHover={{ 
-                      scale: 1.2, 
-                      color: word.color === '#898989' ? '#1d1d1d' : '#898989',
-                      transition: { duration: 0.2 }
-                    }}
-                  >
-                    {char === ' ' ? '\u00A0' : char}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
-          </motion.h1>
-          
-          {/* Decorative arrow element */}
-          <motion.div 
-            className="relative w-20 h-[55px] md:w-[100px] md:h-[68px] lg:w-[120px] lg:h-[82px]"
-            initial={{ opacity: 0, x: -50, rotate: -45 }}
-            animate={{ 
-              opacity: 1, 
-              x: 0, 
-              rotate: 0,
-              transition: {
-                delay: 1.5,
-                duration: 0.8,
-                type: "spring",
-                stiffness: 100
-              }
-            }}
-            whileHover={{ 
-              scale: 1.1, 
-              rotate: 5,
-              transition: { type: "spring", stiffness: 400, damping: 10 }
-            }}
-          >
-            <Ornament />
-          </motion.div>
+    <section className="flex flex-col gap-10">
+      <div className="relative">
+        <h1 className="mono-font text-[clamp(38px,4.2vw,48px)] leading-none tracking-[-0.04em] text-[#363636]">
+          Curious as a cat 🐈‍⬛, shaping products you didn&apos;t know you needed.
+        </h1>
+      </div>
+      <div className="marquee-frame overflow-hidden border-l border-r border-[#fbd5e8] px-3 py-1.5" tabIndex={0} aria-label={capability}>
+        <div className="marquee-track mono-font text-[clamp(20px,2.2vw,32px)] leading-tight text-[#f552a6]">
+          <span className="pr-12">{capability}</span>
+          <span aria-hidden="true" className="pr-12">{capability}</span>
         </div>
       </div>
     </section>

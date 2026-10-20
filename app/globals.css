@@ -10,9 +10,12 @@
 }
 
 :root {
-  --background: #f4fbff;
-  --foreground: #1d1d1d;
-  --secondary-text: #898989;
+  --background: #ffffff;
+  --foreground: #363636;
+  --secondary-text: #8f8f8f;
+  --pink: #f552a6;
+  --card: #f1f1f5;
+  --line: #d9d9d9;
 }
 
 @theme inline {
@@ -25,32 +28,126 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  font-family: var(--font-plus-jakarta), Arial, sans-serif;
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   max-width: 100vw;
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
+  background: #c7c7c7;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: #8f8f8f;
+}
+
+.portfolio-shell {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.portfolio-rail {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 30;
+  width: 300px;
+  padding: 16px 20px;
+  border-right: 1px solid #ececf0;
+  background: #fff;
+}
+
+.portfolio-content {
+  width: min(996px, calc(100% - 340px));
+  margin-left: 378px;
+  padding: 96px 0 80px;
+}
+
+.design-font {
+  font-family: var(--font-league-spartan), Arial, sans-serif;
+}
+
+.mono-font {
+  font-family: var(--font-dream-cottage), "Courier New", monospace;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-frame:hover .marquee-track,
+.marquee-frame:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.screenshot-window {
+  position: relative;
+  height: 258px;
+  overflow: hidden;
+}
+
+.screenshot-window img {
+  transition: transform 2.8s cubic-bezier(.2, .75, .25, 1);
+}
+
+.screenshot-window:hover img,
+.screenshot-window:focus-within img {
+  transform: translateY(var(--scroll-distance));
+}
+
+.video-dialog::backdrop {
+  background: rgb(0 0 0 / 72%);
+}
+
+@media (max-width: 900px) {
+  .portfolio-rail {
+    position: sticky;
+    width: 100%;
+    height: auto;
+    padding: 14px 20px;
+    border-right: 0;
+    border-bottom: 1px solid #ececf0;
+  }
+
+  .portfolio-content {
+    width: 100%;
+    margin-left: 0;
+    padding: 44px 20px 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-content {
+    padding: 32px 16px 48px;
+  }
+
+  .marquee-track {
+    animation-duration: 24s;
+  }
+
+  .screenshot-window:hover img,
+  .screenshot-window:focus-within img {
+    transform: none;
+  }
 }
