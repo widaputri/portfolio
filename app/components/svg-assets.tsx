@@ -77,3 +77,18 @@ export const MediumIcon = () => (
     <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
   </svg>
 );
+
+export const SpunLogo = ({ className = "" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 240 90" fill="none" aria-hidden="true">
+    <g stroke="currentColor" strokeWidth="7" strokeLinejoin="round">
+      <rect x="5" y="18" width="67" height="54" rx="13" />
+      <path d="M61 18 113 7a13 13 0 0 1 16 10l7 47a13 13 0 0 1-10 15l-52 10a13 13 0 0 1-16-10l-7-47a13 13 0 0 1 10-14Z" />
+      <path d="m126 17 50 10a13 13 0 0 1 10 15l-7 45a13 13 0 0 1-16 10l-50-10a13 13 0 0 1-10-15l7-45a13 13 0 0 1 16-10Z" />
+      <path d="m177 27 48-8a13 13 0 0 1 15 11l7 44a13 13 0 0 1-11 15l-47 7a13 13 0 0 1-15-11l-7-43a13 13 0 0 1 10-15Z" />
+    </g>
+    <text x="17" y="58" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="34" fontWeight="800">S</text>
+    <text x="77" y="59" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="34" fontWeight="800" transform="rotate(-10 77 59)">P</text>
+    <text x="135" y="65" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="34" fontWeight="800" transform="rotate(8 135 65)">U</text>
+    <text x="193" y="59" fill="currentColor" fontFamily="Arial, sans-serif" fontSize="34" fontWeight="800" transform="rotate(-7 193 59)">N</text>
+  </svg>
+);

@@ -14,6 +14,7 @@ export interface WorkItem {
   accent: string;
   scroll?: boolean;
   video?: boolean;
+  spunLogo?: boolean;
 }
 
 interface WorkCardProps {
@@ -26,15 +27,20 @@ export default function WorkCard({ work, onVideo }: WorkCardProps) {
   const isInteractive = Boolean(work.link || work.video);
 
   const visual = (
-    <div className="screenshot-window w-full rounded-[9px]" style={{ backgroundColor: work.accent, ['--scroll-distance' as string]: '-54%' }}>
+    <div className={`screenshot-window w-full rounded-[9.333px] ${work.scroll ? 'scrollable' : ''}`} style={{ backgroundColor: work.accent, ['--scroll-distance' as string]: '-54%' }}>
+      {work.spunLogo ? (
+      <Image src="/figma-assets/spun-logo.svg" alt="SPUN" width={180} height={55} className="absolute left-1/2 top-1/2 w-[76%] -translate-x-1/2 -translate-y-1/2" />
+      ) : (
       <Image
         ref={imageRef}
         src={work.thumbnail}
         alt=""
         width={640}
         height={480}
-        className={`absolute left-1/2 top-3 w-[82%] -translate-x-1/2 object-contain ${work.scroll ? 'h-auto' : 'h-full'}`}
+        sizes="320px"
+        className={`absolute left-1/2 top-3 -translate-x-1/2 ${work.scroll ? 'w-[82%] object-contain' : work.title === 'smart upload' ? 'h-full w-full object-contain' : 'h-full w-full object-cover'}`}
       />
+      )}
       {work.video && (
         <span className="absolute left-1/2 top-1/2 flex h-10 w-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#363636] shadow">
           ▶
@@ -54,18 +60,18 @@ export default function WorkCard({ work, onVideo }: WorkCardProps) {
           <Link href={work.link!} target="_blank" rel="noreferrer" className="block">{visual}</Link>
         )
       ) : visual}
-      <div className="flex min-w-0 flex-col justify-between gap-8">
+      <div className="flex min-w-0 flex-col justify-between">
         <div className="flex flex-col gap-3">
-          <h3 className="mono-font text-[clamp(24px,2.3vw,32px)] leading-none">{work.title}</h3>
+          <h3 className="mono-font text-[32px] leading-none">{work.title}</h3>
           <p className="mono-font text-xl leading-none text-[#8f8f8f]">{work.subtitle}</p>
-          <p className="design-font text-xl leading-[1.2]">{work.description}</p>
+          <p className="design-font text-2xl leading-[1.2]">{work.description}</p>
         </div>
         {work.link && (
-          <Link href={work.link} target="_blank" rel="noreferrer" className="mono-font text-2xl underline underline-offset-4">
+          <Link href={work.link} target="_blank" rel="noreferrer" className="mono-font text-2xl underline">
             {work.cta ?? 'Full case study →'}
           </Link>
         )}
-        {work.video && <button type="button" onClick={onVideo} className="mono-font text-left text-2xl underline underline-offset-4">Watch video →</button>}
+        {!work.link && !work.video && work.cta && <p className="mono-font text-2xl text-[#8f8f8f]">{work.cta}</p>}
       </div>
     </article>
   );

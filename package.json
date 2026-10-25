@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run generate-sitemap",
+    "prebuild": "npm run generate-sitemap && npm run generate-portfolio-meta",
+    "predev": "npm run generate-portfolio-meta",
+    "generate-portfolio-meta": "node scripts/generate-portfolio-meta.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
