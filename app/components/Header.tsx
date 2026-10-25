@@ -63,12 +63,17 @@ export default function Header() {
         </Link>
         <button
           type="button"
-          className="design-font hidden rounded border border-[#363636] px-2 py-1 text-xs max-[900px]:block"
+          className="design-font hidden rounded border border-[#363636] p-2 max-[900px]:block"
+          aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={open}
           aria-controls="mobile-navigation"
           onClick={() => setOpen(!open)}
         >
-          MENU
+          <span className="flex w-5 flex-col gap-1" aria-hidden="true">
+            <span className="h-px w-full bg-[#363636]" />
+            <span className="h-px w-full bg-[#363636]" />
+            <span className="h-px w-full bg-[#363636]" />
+          </span>
         </button>
         </div>
         <div className={`${open ? 'block' : 'hidden'} mt-10 border-t border-[#d9d9d9] pt-8 min-[901px]:block`}>
